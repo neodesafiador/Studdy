@@ -1,0 +1,858 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>9th Grade Physical Science</title>
+</head>
+
+<!----------------------------------------------------------------------------->
+<!-- CSS Styles -->
+
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+        font-family: 'Roboto', sans-serif;
+    }
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 20px;
+        padding-top: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+	    background: #fafafa;
+	    background-size: cover;
+        background-position: center;
+    }
+    header {
+        display: flex;
+        position: fixed;
+	    top: 0;
+	    left: 0;
+        width: 100%;
+	    height: 100px;
+	    padding: 20px;
+        justify-content: space-between;
+	    align-items: center;
+	    display: flex;
+        z-index: 99;
+    }
+
+/*----------------------------------------------------------------------------*/
+/* Persistent Banner, Content Dropdown and Logout Button */
+
+    .banner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 75px;
+        background-color: #1d89b7;
+        color: black;
+        line-height: 75px;
+        font-size: 20px;
+    }
+    .banner-text {
+        position: absolute;
+        left: 40px;
+        font-size: 36px;
+        color: white;
+
+    }
+
+    .dropdown {
+        position: absolute;
+        top: 25px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .dropdown button {
+        background-color: transparent;
+        color: white;
+        font-size: 18px;
+        padding: 10px;
+        margin-top: 18px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 200px;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        z-index: 1;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+        columns: 2;
+        align-content: stretch;
+    }
+
+    .logout-button {
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            position: fixed;
+            top: 12px;
+            right: 25px;
+            z-index: 99;
+    }
+    .logout-icon {
+        width: 100%;
+        height: 100%;
+    }
+    .logout-button:hover {
+        transition: box-shadow 0.1s ease-in-out;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 2);
+    }
+    .logout-button:hover .popup-note {
+        display: block;
+    }
+    .popup-note {
+        display: none;
+        position: absolute;
+        top: 105%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #fffeed;
+        color: #000;
+        padding: 5px;
+        border-radius: 5px;
+        white-space: nowrap;
+        z-index: 1;
+    }
+
+    .logged-in-as {
+        font-size: 18px;
+        color: white;
+        margin-right: 10px;
+        position: fixed;
+        top: 25px;
+        right: 90px;
+    }
+
+/*----------------------------------------------------------------------------*/
+/* Home Button */
+
+    .home-button {
+        position: absolute;
+        top: 100px;
+        left: 40px;
+        padding: 10px 10px;
+        background-color: #1d89b7;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .home-button:hover {
+        background-color: #166b91;
+    }
+
+/*----------------------------------------------------------------------------*/
+/* Subject Intro Section */
+
+    .intro-section {
+        text-align: center;
+        margin-top: 100px;
+        padding-bottom: 20px;
+        width: 100%;
+        z-index: 10;
+    }
+
+    .intro-section h1 {
+        margin-bottom: 10px;
+    }
+
+    .intro-section h2 {
+        font-size: 20px;
+        font-weight: normal;
+    }
+
+
+/*----------------------------------------------------------------------------*/
+/* Table Styles */
+
+    .topic-section {
+        margin-top: 50px;
+        width: 80%;
+        max-width: 700px;
+    }
+
+    .topic-title {
+        font-size: 24px;
+        margin-bottom: 5px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        left: 0;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #1d89b7;
+        color: white;
+    }
+
+    td a {
+        color: #1d89b7;
+        text-decoration: none;
+    }
+
+    td a:hover {
+        color: #155f85;
+    }
+
+    /* Responsive adjustments for smaller screens*/
+    @media (max-width: 768px) {
+        body {
+            padding-top: 140px;
+        }
+
+        .home-button {
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+
+        table, th, td {
+            font-size: 14px;
+        }
+    }
+
+    .separator {
+        width: 100%;
+        border: 0;
+        height: 2px;
+        background-color: black;
+        margin: 20px 0;
+    }
+
+/*----------------------------------------------------------------------------*/
+/* Practice Problem Type Selection & Generation */
+
+    .problems-section {
+        margin-top: 20px;
+        width: 80%;
+    }
+
+    .feedback-form {
+        margin-top: 20px;
+        width: 80%;
+    }
+
+    .topic-section {
+        margin-top: 40px;
+        width: 80%;
+    }
+
+    .topic-title {
+        margin-bottom: 10px;
+    }
+
+    .resource-list {
+        list-style-type: disc;
+        margin-left: 20px;
+    }
+
+    .button {
+      background-color: #1d89b7;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      border-radius: 5px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+/*----------------------------------------------------------------------------*/
+/* Feedback Form */
+
+    .feedback-form label {
+        display: block;
+        margin-top: 10px;
+    }
+
+    .feedback-form textarea {
+        width: 100%;
+        height: 100px;
+        margin-top: 5px;
+    }
+
+    .feedback-form input[type="submit"] {
+        margin-top: 15px;
+        padding: 10px 20px;
+        background-color: #1d89b7;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .feedback-form input[type="submit"]:hover {
+        background-color: #166b91;
+    }
+
+</style>
+
+<!------------------------------------------------------------------------------>
+<!-- Content Section -->
+
+<body>
+
+    <header>
+        <div class="banner">
+            <span class="banner-text">Studdy</span>
+        </div>
+
+         <div class="logged-in-as">
+            Logged in as {{ request.user.username }}
+        </div>
+
+        <div>
+            <a href="{% url 'studdyApp:logout' %}" class="logout-button">
+                <img src="https://cdn1.iconfinder.com/data/icons/heroicons-ui/24/logout-512.png" alt="Logout" class="logout-icon">
+                <span class="popup-note">Logout</span>
+            </a>
+        </div>
+
+        <div class="dropdown">
+            <button>Subjects ⛛</button>
+            <div class="dropdown-content">
+                <a href="{% url 'studdyApp:select_subject_grade' subject_name='anatomy' %}">Anatomy</a>
+                <a href="{% url 'studdyApp:select_subject_grade' subject_name='biology' %}">Biology</a>
+                <a href="{% url 'studdyApp:select_subject_grade' subject_name='earth_science' %}">Earth Science</a>
+                <a href="{% url 'studdyApp:select_subject_grade' subject_name='physical_science' %}">Physical Science</a>
+                <a href="{% url 'studdyApp:select_subject_grade' subject_name='astronomy' %}">Astronomy</a>
+                <a href="{% url 'studdyApp:select_subject_grade' subject_name='chemistry' %}">Chemistry</a>
+                <a href="{% url 'studdyApp:select_subject_grade' subject_name='environmental_science' %}">Environmental Science</a>
+                <a href="{% url 'studdyApp:select_subject_grade' subject_name='physics' %}">Physics</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Home Button -->
+    <div>
+        <a href="https://studdy.pythonanywhere.com/" class="home-button">⇦ Back to Home</a>
+    </div>
+
+<!------------------------------------------------------------------------------>
+
+    <div class="intro-section">
+        <h1>9th Grade Physical Science - Helpful Resources</h1>
+        <h2>Explore the following resources to deepen your understanding.</h2>
+    </div>
+
+</body>
+
+<!------------------------------------------------------------------------------>
+<!-- Tables -->
+
+<body>
+
+    <!-- Topic 1: Elements, Matter, and Interactions -->
+    <div class="topic-section">
+        <h2 class="topic-title">Topic 1: Elements, Matter, and Interactions</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Resource</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><a href="https://thewonderofscience.com/hsps11" target="_blank">Valence Electrons and Properties of Elements</a></td></tr>
+                <tr><td><a href="https://thewonderofscience.com/hsps12" target="_blank">Simple Chemical Reactions</a></td></tr>
+                <tr><td><a href="https://thewonderofscience.com/hsps13" target="_blank">Electrical Forces and Bulk Scale Structure</a></td></tr>
+                <tr><td><a href="https://thewonderofscience.com/hsps14" target="_blank">Total Bond Energy Change in Chemical Reactions</a></td></tr>
+                <tr><td><a href="https://thewonderofscience.com/hsess27" target="_blank">Coevolution of Life and Earth's Systems</a></td></tr>
+                <tr><td><a href="https://thewonderofscience.com/hsps17" target="_blank">Conservation of Atoms in Chemical Reactions</a></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Topic 2: Matter in Organisms -->
+    <div class="topic-section">
+        <h2 class="topic-title">Topic 2: Matter in Organisms</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Resource</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><a href="https://thewonderofscience.com/hsls15" target="_blank">Photosynthesis and Energy Transformation</a></td></tr>
+                <tr><td><a href="https://thewonderofscience.com/hsls17" target="_blank">Cellular Respiration and Energy Transfer</a></td></tr>
+                <tr><td><a href="https://thewonderofscience.com/hsls24" target="_blank">Biomass and Trophic Levels</a></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Topic 3: Topic 3: Forces and Motion -->
+    <div class="topic-section">
+        <h2 class="topic-title">Topic 3: Forces and Motion</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Resource</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><a href="https://thewonderofscience.com/hsps21" target="_blank">Newton's Second Law of Motion</a></td></tr>
+                <tr><td><a href="https://thewonderofscience.com/hsps23" target="_blank">Reducing Force in Collisions Device</a></td></tr>
+                <tr><td><a href="https://thewonderofscience.com/hsps25" target="_blank">Electric Current and Magnetic Fields</a></td></tr>
+                <tr><td><a href="https://thewonderofscience.com/hsps26" target="_blank">Molecular-Level Structure of Designed Materials</a></td></tr>
+                <tr><td><a href="https://thewonderofscience.com/hsess15" target="_blank">Evidence of Plate Tectonics</a></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- Topic 4: Energy -->
+    <div class="topic-section">
+        <h2 class="topic-title">Topic 4: Energy</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Resource</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><a href="https://thewonderofscience.com/hsps31" target="_blank">Energy Change in Components of a System</a></td></tr>
+                <tr><td><a href="https://thewonderofscience.com/hsps32" target="_blank">Macroscopic Energy Due to Particle Position and Motion</a></td></tr>
+                <tr><td><a href="https://thewonderofscience.com/hsps33" target="_blank">Energy Conversion Device Design</a></td></tr>
+                <tr><td><a href="https://thewonderofscience.com/hsps34" target="_blank">The Second Law of Thermodynamics</a></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Topic 5: Waves -->
+    <div class="topic-section">
+        <h2 class="topic-title">Topic 5: Waves</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Resource</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><a href="https://thewonderofscience.com/hsps41" target="_blank">Wave Properties in Various Media</a></td></tr>
+                <tr><td><a href="https://thewonderofscience.com/hsps42" target="_blank">Digital Transmission and Storage of Information</a></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- Topic 6: Interactions of Humans and the Environment -->
+    <div class="topic-section">
+        <h2 class="topic-title">Topic 6: Interactions of Humans and the Environment</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Resource</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><a href="https://thewonderofscience.com/hsls27" target="_blank">Human Impact Reduction Solution</a></td></tr>
+                <tr><td><a href="https://thewonderofscience.com/hsls45" target="_blank">Environmental Change - Speciation and Extinction</a></td></tr>
+                <tr><td><a href="https://thewonderofscience.com/hsess21" target="_blank">The Creation of Landforms</a></td></tr>
+                <tr><td><a href="https://thewonderofscience.com/hsess31" target="_blank">Global Impacts on Human Activity</a></td></tr>
+                <tr><td><a href="https://thewonderofscience.com/hsess32" target="_blank">Cost-Benefit Ratio Design Solutions</a></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <br><hr class="separator">
+
+<!------------------------------------------------------------------------------>
+<!-- Problems and Feedback -->
+
+    <br><div class="problems-section">
+        <h1>Physical Science Practice Problems</h1><br>
+
+
+{% if practice_type == 'flashcards' %}
+    <style>
+        .flip-card {
+            background-color: transparent;
+            width: 300px;
+            height: 200px;
+            perspective: 1000px;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+            cursor: pointer;
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            /* Center the content */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        .flip-card-front {
+            background-color: #f0f0f0;
+            color: #000;
+        }
+
+        .flip-card-back {
+            background-color: #4CAF50;
+            color: white;
+            transform: rotateY(180deg);
+        }
+    </style>
+
+    <div class="flashcards-container">
+        {% for flashcard in problems %}
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <p>{{ flashcard.question }}</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>{{ flashcard.answer }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% elif practice_type == 'multiple-choice questions' %}
+        <style>
+            .question-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+                margin-bottom: 30px;
+            }
+
+            .question-block {
+                max-width: 100%;
+                word-wrap: break-word;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            .options-list {
+                list-style-type: none;
+                padding: 0;
+            }
+            .options-list li {
+                margin: 5px 0;
+            }
+            .option-button {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                background-color: #f0f0f0;
+                border: 1px solid #ccc;
+                text-align: left;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+            .option-button:hover {
+                background-color: #e0e0e0;
+            }
+            .feedback {
+                margin-top: 10px;
+                font-weight: bold;
+            }
+            .correct {
+                color: green;
+            }
+            .incorrect {
+                color: red;
+            }
+
+            @media (max-width: 768px) {
+                .question-container {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+        </style>
+
+        <div class="question-container">
+            {% for item in problems %}
+                <div class="question-block" id="question{{ forloop.counter }}">
+                    <p><strong>Question {{ item.number }}:</strong> {{ item.question }}</p>
+                    <ul class="options-list">
+                        {% for letter, option in item.options.items %}
+                            <li>
+                                <button class="option-button" onclick="checkAnswer('{{ item.number }}', '{{ letter }}', this)">
+                                    {{ letter }}. {{ option }}
+                                </button>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <p class="feedback" id="feedback{{ item.number }}" style="display: none;"></p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Include the script for handling user interactions -->
+        <script>
+            var correctAnswers = {
+                {% for item in problems %}
+                    '{{ item.number }}': '{{ item.answer }}'{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            };
+
+            function checkAnswer(questionNumber, selectedOption, buttonElement) {
+                var feedbackElement = document.getElementById('feedback' + questionNumber);
+                var correctOption = correctAnswers[questionNumber];
+
+                // Disable all buttons in this question block
+                var questionBlock = document.getElementById('question' + questionNumber);
+                var buttons = questionBlock.getElementsByClassName('option-button');
+                for (var i = 0; i < buttons.length; i++) {
+                    buttons[i].disabled = true;
+                    buttons[i].style.cursor = 'default';
+                    if (buttons[i].textContent.trim().startsWith(correctOption + '.')) {
+                        buttons[i].style.backgroundColor = '#d4edda'; // Green background for correct option
+                    }
+                }
+
+                if (selectedOption === correctOption) {
+                    feedbackElement.textContent = 'Correct!';
+                    feedbackElement.className += ' correct';
+                } else {
+                    feedbackElement.textContent = 'Incorrect. The correct answer is ' + correctOption + '.';
+                    feedbackElement.className += ' incorrect';
+                    // Highlight the selected incorrect option
+                    buttonElement.style.backgroundColor = '#f8d7da'; // Red background for incorrect option
+                }
+
+                feedbackElement.style.display = 'block';
+            }
+        </script>
+
+{% elif practice_type == 'matching exercises' %}
+        <style>
+            .matching-exercises {
+                margin-bottom: 20px;
+            }
+            .matching-exercises ul {
+                list-style-type: none;
+                padding: 0;
+            }
+            .matching-exercises li {
+                margin: 5px 0;
+            }
+            .matching-exercises input[type="text"] {
+                width: 30px;
+                text-transform: uppercase;
+                text-align: center;
+            }
+            .feedback {
+                font-weight: bold;
+            }
+            .correct {
+                color: green;
+            }
+            .incorrect {
+                color: red;
+            }
+        </style>
+
+        <div class="matching-exercises">
+            <h2>List A:</h2>
+            <ul>
+                {% for item in problems.list_a %}
+                    <li>{{ item.number }}. {{ item.term }}</li>
+                {% endfor %}
+            </ul>
+
+            <br><h2>List B:</h2>
+            <ul>
+                {% for item in problems.list_b %}
+                    <li>{{ item.letter }}. {{ item.definition }}</li>
+                {% endfor %}
+            </ul>
+
+            <br><h2>Your Answers:</h2>
+            <form id="matchingForm">
+                <ul>
+                    {% for item in problems.list_a %}
+                        <li>
+                            {{ item.number }} -
+                            <input type="text" name="answer{{ item.number }}" maxlength="1" oninput="this.value = this.value.toUpperCase();">
+                        </li>
+                    {% endfor %}
+                </ul>
+                <button class="button" onclick="checkMatchingAnswers()">Check Answers</button>
+            </form>
+            <div id="matchingFeedback" style="display:none;">
+                <h3>Feedback:</h3>
+                <ul id="feedbackList"></ul>
+            </div>
+        </div>
+
+        <script>
+            var correctAnswers = {
+                {% for num, letter in problems.answer_key.items %}
+                    '{{ num }}': '{{ letter }}'{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            };
+
+            function checkMatchingAnswers() {
+                var feedbackList = document.getElementById('feedbackList');
+                feedbackList.innerHTML = '';
+                var form = document.getElementById('matchingForm');
+                var allCorrect = true;
+
+                {% for item in problems.list_a %}
+                    var userAnswer = form['answer{{ item.number }}'].value.trim().toUpperCase();
+                    var correctAnswer = correctAnswers['{{ item.number }}'];
+                    var feedbackItem = document.createElement('li');
+                    if (userAnswer === correctAnswer) {
+                        feedbackItem.innerHTML = '{{ item.number }} - Correct!';
+                        feedbackItem.className = 'feedback correct';
+                    } else {
+                        feedbackItem.innerHTML = '{{ item.number }} - Incorrect. Correct answer: ' + correctAnswer;
+                        feedbackItem.className = 'feedback incorrect';
+                        allCorrect = false;
+                    }
+                    feedbackList.appendChild(feedbackItem);
+                {% endfor %}
+
+                document.getElementById('matchingFeedback').style.display = 'block';
+            }
+        </script>
+
+{% elif practice_type == 'short answer questions' %}
+        {% if graded_results %}
+            <!-- Display Graded Results -->
+            <div class="graded-results">
+                {% for result in graded_results %}
+                    <div class="question-block">
+                        <br><p><strong>Question {{ result.number }}:</strong> {{ result.question }}</p>
+                        <p><strong>Your Answer:</strong> {{ result.user_answer }}</p>
+                        <p><strong>Correct Answer:</strong> {{ result.correct_answer }}</p>
+                        <p><strong>Score:</strong> {{ result.score }} / 5</p>
+                        <p><strong>Feedback:</strong> {{ result.feedback }}</p><br>
+                    </div>
+                    <hr>
+                {% endfor %}
+            </div>
+        {% else %}
+            <!-- Display Questions with Input Fields -->
+            <form method="post">
+                {% csrf_token %}
+                {% for item in problems %}
+                    <div class="question-block">
+                        <p>&nbsp;</p>
+                        <p><strong>Question {{ item.number }}:</strong> {{ item.question }}</p>
+                        <textarea name="user_answer_{{ item.number }}" rows="3" cols="80"></textarea>
+                    </div>
+                    <!-- <hr> -->
+                {% endfor %}
+                <input type="submit" class="button" name="submit_answers" value="Submit Answers">
+            </form>
+        {% endif %}
+{% else %}
+    <pre>{{ problems }}</pre>
+{% endif %}
+
+    </div>
+
+
+<div class="feedback-form">
+    <br><h2>Select the Type of Practice Problems:</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label>
+            <input type="radio" name="q3_answer" value="A" {% if q3_answer == 'A' %}checked{% endif %}> Multiple Choice Questions
+        </label>
+        <label>
+            <input type="radio" name="q3_answer" value="B" {% if q3_answer == 'B' %}checked{% endif %}> Flashcards
+        </label>
+        <label>
+            <input type="radio" name="q3_answer" value="C" {% if q3_answer == 'C' %}checked{% endif %}> Matching Exercises
+        </label>
+        <label>
+            <input type="radio" name="q3_answer" value="D" {% if q3_answer == 'D' %}checked{% endif %}> Short Answer Questions
+        </label><br>
+
+        <label for="feedback">Please provide your feedback:</label>
+        <textarea name="feedback">{{ feedback }}</textarea><br>
+
+        <input type="submit" value="Generate Problems">
+    </form>
+</div>
+
+</body>
+</html>

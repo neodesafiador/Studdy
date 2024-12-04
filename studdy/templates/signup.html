@@ -1,0 +1,219 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Sign Up!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            font-family: 'Roboto', sans-serif;
+        }
+        body {
+            padding-top: 100px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('{% static 'sprites/main_login.jpg' %}') no-repeat;
+            background: #282c34; /* Fallback background color */
+            background-size: cover;
+            background-position: center;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120px;
+            padding: 20px;
+            justify-content: space-between;
+            align-items: center;
+            display: flex;
+            z-index: 99;
+        }
+        .form-wrapper {
+            border: 2px solid #1d89b7;
+            padding: 30px 40px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.1); /* Slight transparency for effect */
+            width: 100%;
+            max-width: 500px;
+        }
+        .register-require {
+            font-size: 18px;
+            color: #fff;
+            text-align: left;
+            font-weight: 400;
+            margin: 20px 0;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .requirements {
+            font-size: 14px;
+            color: #ccc;
+            margin-top: 5px;
+        }
+        .login-asking {
+            font-size: 18px;
+            color: #fff;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .navigation {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .navigation a {
+            color: #1d89b7;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1em;
+        }
+        .btnSignUp-popup {
+            width: 100%;
+            max-width: 400px;
+            height: 60px;
+            background: transparent;
+            border: 3px solid #fff;
+            outline: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 24px;
+            color: #fff;
+            font-weight: 500;
+            transition: .3s;
+            margin-top: 20px;
+        }
+        .btnSignUp-popup:hover {
+            background: #fff;
+            color: #000;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 50px;
+            }
+            .btnSignUp-popup {
+                width: 80%;
+            }
+            .form-wrapper {
+                padding: 20px 30px;
+                margin: 10px;
+            }
+            .register-require {
+                margin-left: 10px;
+                margin-right: 10px;
+                font-size: 18px;
+            }
+            .login-asking {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!--
+<div class="form-wrapper">
+    <form method="POST" class="register-require">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+            <div class="requirements">
+                <p>• Must be at least 6 characters</p>
+                <p>• Can contain letters, numbers, and underscores</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <div class="requirements">
+                <p>• Must be at least 8 characters</p>
+                <p>• Must contain at least one number and one special character</p>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button type="submit" class="btnSignUp-popup">Sign up!</button>
+            <p class="login-asking">Already have an account?
+                <a href="{% url 'studdyApp:login' %}">Login!</a>
+            </p>
+        </div>
+    </form>
+</div>
+
+</body>
+</html> -->
+<div class="form-wrapper">
+    <form method="POST" class="register-require">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        <!-- Username Field -->
+        <div class="form-group">
+            <label for="username">Username</label>
+            {{ form.username.errors }}
+            {{ form.username }}
+            <div class="requirements">
+                <p>• Must be at least 6 characters</p>
+                <p>• Can contain letters, numbers, and underscores</p>
+            </div>
+        </div>
+
+        <!-- Password1 Field -->
+        <div class="form-group">
+            <label for="password1">Password</label>
+            {{ form.password1.errors }}
+            {{ form.password1 }}
+            <div class="requirements">
+                <p>• Must be at least 8 characters</p>
+                <p>• Must contain at least one number and one special character</p>
+            </div>
+        </div>
+
+        <!-- Password2 Field -->
+        <div class="form-group">
+            <label for="password2">Confirm Password</label>
+            {{ form.password2.errors }}
+            {{ form.password2 }}
+            <div class="requirements">
+                <p>• Must match the password</p>
+            </div>
+        </div>
+
+        <!-- Submit Button and Login Link -->
+        <div class="navigation">
+            <button type="submit" class="btnSignUp-popup">Sign up!</button>
+            <p class="login-asking">Already have an account?
+                <a href="{% url 'studdyApp:login' %}">Login!</a>
+            </p>
+        </div>
+    </form>
+</div>
+

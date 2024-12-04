@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<title>Anatomy</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+        font-family: 'Roboto', sans-serif;
+    }
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 20px;
+        padding-top: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+	    background: #fafafa;
+	    background-size: cover;
+        background-position: center;
+    }
+    header {
+        display: flex;
+        position: fixed;
+	    top: 0;
+	    left: 0;
+        width: 100%;
+	    height: 100px;
+	    padding: 20px;
+        justify-content: space-between;
+	    align-items: center;
+	    display: flex;
+        z-index: 99;
+    }
+    .banner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 75px;
+        background-color: #1d89b7;
+        color: black;
+        line-height: 75px;
+        font-size: 20px;
+    }
+    .banner-text {
+        position: absolute;
+        left: 40px;
+        font-size: 36px;
+        color: white;
+    }
+    .logout-button {
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            position: fixed;
+            top: 12px;
+            right: 25px;
+            z-index: 99;
+    }
+    .logout-icon {
+        width: 100%;
+        height: 100%;
+    }
+    .logout-button:hover {
+        transition: box-shadow 0.1s ease-in-out;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 2);
+    }
+    .logout-button:hover .popup-note {
+        display: block;
+    }
+    .popup-note {
+        display: none;
+        position: absolute;
+        top: 105%; /* Position above the button */
+        left: 50%; /* Start from the middle of the button */
+        transform: translateX(-50%);
+        background-color: #fffeed;
+        color: #000;
+        padding: 5px;
+        border-radius: 5px;
+        white-space: nowrap; /* Prevent text wrapping */
+        z-index: 1; /* Ensure the note is above other elements */
+    }
+
+    .logged-in-as {
+        font-size: 18px;
+        color: white;
+        margin-right: 10px; /* Add space between text and logout button */
+        position: fixed;
+        top: 25px;
+        right: 90px;
+    }
+
+    .home-button {
+        position: absolute;
+        top: 100px; /* Just below the banner */
+        left: 40px; /* 40px margin from the left */
+        padding: 10px 10px;
+        background-color: #1d89b7;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        z-index: 100;
+    }
+
+    .home-button:hover {
+        background-color: #166b91;
+    }
+
+</style>
+
+<body>
+    <header>
+    <div class="banner">
+        <span class="banner-text">Studdy</span>
+    </div>
+    <div class="logged-in-as">
+        Logged in as {{ request.user.username }}
+    </div>
+    <div>
+        <a href="{% url 'studdyApp:logout' %}" class="logout-button">
+            <img src="https://cdn1.iconfinder.com/data/icons/heroicons-ui/24/logout-512.png" alt="Logout" class="logout-icon">
+            <span class="popup-note">Logout</span>
+        </a>
+    </div>
+  </header>
+
+   <div>
+        <a href="https://studdy.pythonanywhere.com/" class="home-button">⇦ Back to Home</a>
+    </div>
+
+    <div class="body">
+        <h1>Anatomy</h1>
+    </div>
+    <p>Content related to Anatomy goes here.</p>
+</body>
+</html>
