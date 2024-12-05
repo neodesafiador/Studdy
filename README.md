@@ -8,6 +8,8 @@ Group members: **Ethan Christmas, Katsuki Oike, Cody Painter, Dale Marquez**
   - [Overview](#overview)
   - [Milestones](#milestones)
   - [How to Play](#how-to-play)
+  - [Demo Video](#demo-video)
+    - [Multiple Choice Questions](#multiple-choice-questions)
 ## Overview
 
 
@@ -20,4 +22,11 @@ Group members: **Ethan Christmas, Katsuki Oike, Cody Painter, Dale Marquez**
 
 
 ## How to Play
-go to https://studdy.pythonanywhere.com/
+1. Go to https://studdy.pythonanywhere.com/
+2. Create your account
+3. Enjoy!!
+
+
+## Demo Video
+### Multiple Choice Questions
+<img src="https://media.giphy.com/media/aNN4sz9uC7x4JeFPIy/giphy.gif" width="480" height="278" alt="Multiple Choice" />
