@@ -19,9 +19,21 @@ Group members: **Ethan Christmas, Katsuki Oike, Cody Painter, Dale Marquez**
 ## Milestones
 
 - [X] **Ethan Part**
+      - Set up the environment on PythonAnywhere.
+      - Set up different webpages for each subject.
+      - Pull resources from the Arkansas curriculum.
+      - Develop user signup, login, and logout pages.
+      - Create the Learning Profile page.
 - [X] **Katsuki Part**
+      - Implement practice problems, including multiple-choice questions, flashcards, matching exercises, and short-answer questions.
+      - Provide personalized questions based on the User Learning Profile.
+      - Implement interactive recommendations using natural language.
+      - Develop a grading system for short-answer questions.
+      - Design practice problems.
 - [X] **Cody Part**
+      - Design the overall app interface and user experience.
 - [X] **Dale Part**
+      - Create the Entity-Relationship (E/R) diagram for the system.
 
 
 ## How to Play
