@@ -6,7 +6,7 @@ Group members: **Ethan Christmas, Katsuki Oike, Cody Painter, Dale Marquez**
 - [CS Capstone Project - *Your personalized study buddy*](#cs-capstone-project---your-personalized-study-buddy)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
-  - [Milestones](#milestones)
+  - [Roles](#roles)
   - [How to Play](#how-to-play)
   - [Demo Video](#demo-video)
     - [Multiple Choice Questions](#multiple-choice-questions)
@@ -16,24 +16,31 @@ Group members: **Ethan Christmas, Katsuki Oike, Cody Painter, Dale Marquez**
 ## Overview
 
 
-## Milestones
+## Roles
 
 - [X] **Ethan Part**
-      - Set up the environment on PythonAnywhere.
-      - Set up different webpages for each subject.
-      - Pull resources from the Arkansas curriculum.
-      - Develop user signup, login, and logout pages.
-      - Create the Learning Profile page.
+  
+  - Set up the environment on PythonAnywhere.
+  - Set up different webpages for each subject.
+  - Pull resources from the Arkansas curriculum.
+  - Develop user signup, login, and logout pages.
+  - Create the Learning Profile page.
+  
 - [X] **Katsuki Part**
-      - Implement practice problems, including multiple-choice questions, flashcards, matching exercises, and short-answer questions.
-      - Provide personalized questions based on the User Learning Profile.
-      - Implement interactive recommendations using natural language.
-      - Develop a grading system for short-answer questions.
-      - Design practice problems.
+  
+  - Implement practice problems, including multiple-choice questions, flashcards, matching exercises, and short-answer questions.
+  - Provide personalized questions based on the User Learning Profile.
+  - Implement interactive recommendations using natural language.
+  - Develop a grading system for short-answer questions.
+  - Design practice problems.
+  
 - [X] **Cody Part**
-      - Design the overall app interface and user experience.
+  
+  - Design the overall app interface and user experience.
+  
 - [X] **Dale Part**
-      - Create the Entity-Relationship (E/R) diagram for the system.
+  
+  - Create the Entity-Relationship (E/R) diagram for the system.
 
 
 ## How to Play
