@@ -14,7 +14,7 @@ Group members: **Ethan Christmas, Katsuki Oike, Cody Painter, Dale Marquez**
     - [Matching Exercises](#matching-exercises)
     - [Short Answer](#short-answer)
 ## Overview
-
+We provide personalized questions about science.
 
 ## Roles
 
@@ -50,7 +50,7 @@ Group members: **Ethan Christmas, Katsuki Oike, Cody Painter, Dale Marquez**
 <img src="https://media.giphy.com/media/aNN4sz9uC7x4JeFPIy/giphy.gif" width="480" height="278" alt="Multiple Choice" />
 
 ### Flashcards
-<img src="https://media.giphy.com/media/3Lk0YlBYDON4SO8AXL/giphy.gif" width="480" height="278" alt="Flashcards" />
+<img src="https://media.giphy.com/media/TqvnzdrPHt8bjWo92P/giphy.gif" width="480" height="278" alt="Flashcards" />
 
 ### Matching Exercises
 <img src="https://media.giphy.com/media/Y2jDFHFqYdFjZfVanL/giphy.gif" width="480" height="278" alt="Matching Exercises" />
