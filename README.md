@@ -50,7 +50,7 @@ We provide personalized questions about science.
 <img src="https://media.giphy.com/media/aNN4sz9uC7x4JeFPIy/giphy.gif" width="480" height="278" alt="Multiple Choice" />
 
 ### Flashcards
-<img src="https://media.giphy.com/media/TqvnzdrPHt8bjWo92P/giphy.gif" width="480" height="278" alt="Flashcards" />
+<img src="https://media.giphy.com/media/b3hcfObQwB0ekOLzAd/giphy.gif" width="480" height="278" alt="Flashcards" />
 
 ### Matching Exercises
 <img src="https://media.giphy.com/media/Y2jDFHFqYdFjZfVanL/giphy.gif" width="480" height="278" alt="Matching Exercises" />
