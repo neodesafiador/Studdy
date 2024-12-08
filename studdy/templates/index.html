@@ -102,6 +102,19 @@
         right: 90px;
     }
 
+    @media (max-width: 768px) {
+        .logged-in-as {
+            font-size: 14px;
+            margin-right: 7px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .logged-in-as {
+            font-size: 14px;
+            margin-right: 5px;
+        }
+    }
 /*------------------------------------------------------------------*/
 /** UI before logged in                                             */
 
@@ -210,7 +223,6 @@
         }
 
         .subject a {
-            width: 40%;
             font-size: 1.2em;
             padding: 10px;
         }
@@ -223,7 +235,6 @@
         }
 
         .subject a {
-            width: 40%;
             font-size: 1em;
             padding: 10px 10px;
         }
@@ -342,10 +353,10 @@
             <span class="banner-text">Studdy</span>
         </div>
         <div>
-            <a href="{% url 'studdyApp:login' %}">Login</a><br>
+            <a href="{% url 'studdyApp:login' %}" style="align-items: center;">Login</a><br>
         </div>
         <div>
-            <a href="{% url 'studdyApp:signup' %}">Sign up</a>
+            <a href="{% url 'studdyApp:signup' %}" style="align-items: center;">Sign up</a>
         </div>
     </nav>
 {% endif %}
