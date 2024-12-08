@@ -47,13 +47,13 @@ We provide personalized questions about science.
 
 ## Demo Video
 ### Multiple Choice Questions
-<img src="https://media.giphy.com/media/aNN4sz9uC7x4JeFPIy/giphy.gif" width="480" height="278" alt="Multiple Choice" />
+<img src="https://media.giphy.com/media/1PUhmxejkRZl0KzuJ1/giphy.gif" width="480" height="278" alt="Multiple Choice" />
 
 ### Flashcards
 <img src="https://media.giphy.com/media/b3hcfObQwB0ekOLzAd/giphy.gif" width="480" height="278" alt="Flashcards" />
 
 ### Matching Exercises
-<img src="https://media.giphy.com/media/Y2jDFHFqYdFjZfVanL/giphy.gif" width="480" height="278" alt="Matching Exercises" />
+<img src="https://media.giphy.com/media/MkIwrX6beVcQ6g83Rz/giphy.gif" width="480" height="278" alt="Matching Exercises" />
 
 ### Short Answer
 <img src="https://media.giphy.com/media/iFs18RuQzlph8U6mW3/giphy.gif" width="480" height="278" alt="Short Answer" />
