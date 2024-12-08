@@ -25,11 +25,11 @@
         background-color: #1d89b7;
         border: none;
         color: white;
-        padding: 8px 12px;
+        padding: 8px 8px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
-        font-size: 18px;
+        font-size: 14px;
         border-radius: 5px;
         margin: 4px 2px;
         cursor: pointer;
@@ -64,7 +64,7 @@
 
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }} 
+            {{ form.as_p }}
             <button class="button">Continue</button>
         </form>
 
