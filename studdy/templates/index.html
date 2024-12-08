@@ -7,280 +7,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/subject_styles.css' %}">
     <title>Studdy Online Learning</title>
 </head>
 
 <!----------------------------------------------------------------------------->
-<!-- CSS Styles -->
-
-<style>
-
-	* {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        scroll-behavior: smooth;
-        font-family: 'Roboto', sans-serif;
-	}
-
-
-/*----------------------------------------------------------------------------*/
-/* Persistent Banner and Welcome */
-
-    .banner {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 80px;
-        background-color: #1d89b7;
-        color: black;
-        line-height: 75px;
-        font-size: 20px;
-    }
-    .banner-text {
-        position: absolute;
-        font-weight: bold;
-        display: flex;
-        left: 40px;
-        font-size: 40px;
-        color: white;
-    }
-    .welcome {
-        user-select: none;
-        text-align: center;
-        font-size: 1.125em;
-        color: black;
-        margin-top: 90px;
-        margin-bottom: 15px;
-    }
-
-/*------------------------------------------------------------------*/
-/* Logout Button */
-
-    .logout-button {
-        width: 50px;
-        height: 50px;
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-        position: fixed;
-        top: 12px;
-        right: 25px;
-        z-index: 99;
-    }
-    .logout-icon {
-        width: 100%;
-        height: 100%;
-    }
-    .logout-button:hover {
-        transition: box-shadow 0.1s ease-in-out;
-        box-shadow: 0 0 10px rgba(255, 255, 255, 2);
-    }
-    .logout-button:hover .popup-note {
-        display: block;
-    }
-    .popup-note {
-        display: none;
-        position: absolute;
-        top: 105%;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: #fffeed;
-        color: #000;
-        padding: 5px;
-        border-radius: 5px;
-        white-space: nowrap;
-        z-index: 1;
-    }
-    .logged-in-as {
-        font-size: 18px;
-        color: white;
-        margin-right: 10px;
-        position: fixed;
-        top: 25px;
-        right: 90px;
-    }
-
-    @media (max-width: 768px) {
-        .logged-in-as {
-            font-size: 14px;
-            margin-right: 7px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .logged-in-as {
-            font-size: 14px;
-            margin-right: 5px;
-        }
-    }
-/*------------------------------------------------------------------*/
-/** UI before logged in                                             */
-
-    .wrapper {
-        position: relative;
-        width: 400px;
-        height: 500px;
-        background: transparent;
-        border: 2px solid rgba(255, 255, 255, .5);
-        border-radius: 20px;
-        backdrop-filter: blur(15px);
-        display: inline;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        padding: 30px 40px;
-    }
-    .wrapper h2 {
-        font-size: 36px;
-        text-align: center;
-        color: #fff;  color: #fff;
-    }
-    .navigation a {
-        position: relative;
-        font-size: 2em;
-        color: black;
-        text-decoration: none;
-        font-weight: 500;
-        display: grid;
-        place-items: center;
-        height: 5vh;
-    }
-    .navigation a::after {
-        content: '';
-        position: static;
-        width: 10%;
-        height: 3px;
-        background: #000;
-        transform: scaleX(0);
-        transition: transform .3s;
-    }
-    .navigation a:hover::after {
-        transform: scaleX(1);
-    }
-    .navigation .btnLogin-popup {
-        width: 25%;
-        height: 50px;
-        background: transparent;
-        border: 3px solid #fff;
-        cursor: pointer;
-        color: black;
-        transition: .3s;
-    }
-    .navigation .btnLogin-popup:hover {
-        background: #fff;
-        color: #000;
-    }
-
-/*------------------------------------------------------------------*/
-/** Subject Buttons and Properties                                  */
-
-    .subject-buttons {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-
-    }
-
-    .subject {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        transition: transform 0.2s ease;
-    }
-
-    .subject a {
-        text-decoration: none;
-        background-color: #1d89b7;
-        font-size: 1.125em;
-        color: white;
-        padding: 10px;
-        border-radius: 5px;
-        transition: transform 0.2s ease, background-color 0.1s ease;
-        width: 150px;
-
-        text-align: center;
-        display: block;
-    }
-
-    .subject:hover {
-        transform: scale(1.1);
-    }
-
-    .subject a:hover {
-        background-color: #155f85;
-    }
-
-    /* adjustments for smaller screens */
-    @media (max-width: 768px) {
-        .subject-buttons {
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .subject a {
-            font-size: 1.2em;
-            padding: 10px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .subject-buttons {
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .subject a {
-            font-size: 1em;
-            padding: 10px 10px;
-        }
-    }
-
-</style>
-
-<!----------------------------------------------------------------------------->
+<!-- Home Page Content -->
 
 <body>
 
     <style>
         body {
-    	    padding: 20px;
     	    margin: auto;
-    	    min-height: 100vh;
-    	    justify-content: center;
-    	    align-items: center;
     	    align-content: center;
     	    text-align: center;
-    	    background: #fafafa;
-            background-size: cover;
-    	    background-position: center;
-    	}
-    	header {
-    	    position: fixed;
-    	    top: 0;
-    	    left: 0;
-    	    width: 100%;
-    	    height: 100px;
-    	    padding: 20px;
-    	    justify-content: space-between;
-    	    align-items: center;
-    	    display: flex;
-    	    z-index: 99;
     	}
     </style>
 
 <!----------------------------------------------------------------------------->
-<!-- Home Page Content -->
+<!-- After Singup/Login  -->
 
 {% if request.user.is_authenticated %}
     <header>
         <div class="banner">
             <p class="banner-text">Studdy<p>
-            <p class="banner-text" style="font-size: 14px; font-weight: normal; left: 40px; top: 30px;">Your Personalized Study Buddy</p>
+            <p class="banner-text" style="font-size: 14px; font-weight: normal; left: 40px; top: 59px;">Your Personalized Study Buddy</p>
         </div>
 
         <div class="logged-in-as">
@@ -293,17 +44,15 @@
                 <span class="popup-note">Logout</span>
             </a>
         </div>
-  </header>
+    </header>
 
-  <div class="welcome">
-    <h1>Hello {{ request.user.username }}, Welcome to Studdy!</h1><br>
-    <img src="{% static 'images/whiteboard.png' %}" alt="My Image" style="width: auto; height: auto; max-width: 100%;"><br><br>
-
-    <h2>Select a subject</h2>
-  </div>
+    <div class="welcome">
+        <h1>Hello {{ request.user.username }}, Welcome to Studdy!</h1><br>
+        <img src="{% static 'images/whiteboard.png' %}" alt="My Image" style="width: auto; height: auto; max-width: 100%;"><br><br>
+        <h2>Select a subject</h2>
+    </div>
 
     <div class="subject-buttons">
-
         <div class="subject">
             <a href="{% url 'studdyApp:select_subject_grade' subject_name='anatomy' %}">
                 <img src="{% static 'images/anatomy_icon.png' %}" alt="Icon 7" style="width: 120px; height: auto;"><br>Anatomy</a>
@@ -334,7 +83,6 @@
                 <img src="{% static 'images/environ_sci_icon.png' %}" alt="Icon 5" style="width: 120px; height: auto;"><br>Environmental Science</a>
         </div>
 
-
         <div class="subject">
             <a href="{% url 'studdyApp:select_subject_grade' subject_name='physical_science' %}">
                 <img src="{% static 'images/physical_science_icon.png' %}" alt="Icon 4" style="width: 120px; height: auto;"><br>Physical Science</a>
@@ -344,17 +92,21 @@
             <a href="{% url 'studdyApp:select_subject_grade' subject_name='physics' %}">
                 <img src="{% static 'images/physics_icon.png' %}" alt="Icon 8" style="width: 120px; height: auto;"><br>Physics</a>
         </div>
-
     </div>
+
+<!----------------------------------------------------------------------------->
+<!-- Before Singup/Login  -->
 
 {% else %}
     <nav class="navigation">
         <div class="banner">
             <span class="banner-text">Studdy</span>
         </div>
+
         <div>
             <a href="{% url 'studdyApp:login' %}" style="align-items: center;">Login</a><br>
         </div>
+
         <div>
             <a href="{% url 'studdyApp:signup' %}" style="align-items: center;">Sign up</a>
         </div>
