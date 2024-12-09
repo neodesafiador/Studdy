@@ -64,7 +64,7 @@
 
     .dropdown {
         position: absolute;
-        top: 25px;
+        top: 45px;
         left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
@@ -153,23 +153,20 @@
     .logged-in-as {
         font-size: 18px;
         color: white;
-        margin-right: 10px;
         position: fixed;
-        top: 25px;
+        top: 30px;
         right: 90px;
     }
 
     @media (max-width: 768px) {
         .logged-in-as {
             font-size: 14px;
-            margin-right: 7px;
         }
     }
 
     @media (max-width: 480px) {
         .logged-in-as {
             font-size: 14px;
-            margin-right: 5px;
         }
     }
 
@@ -306,7 +303,7 @@
         top: 100px;
         left: 40px;
         padding: 8px 8px;
-        background-color: #1d89b7;
+        background-color: #156B8F;
         color: white;
         text-decoration: none;
         font-size: 14px;
@@ -317,7 +314,7 @@
     }
 
     .home-button:hover {
-        background-color: #166b91;
+        background-color: #125874;
     }
 
 /*----------------------------------------------------------------------------*/
@@ -366,11 +363,11 @@
     th, td {
         padding: 10px;
         text-align: left;
-        border: 1px solid #ddd;
+        border: 1px solid #7f7f7f;
     }
 
     th {
-        background-color: #1d89b7;
+        background-color: #156B8F;
         color: white;
     }
 
@@ -381,6 +378,14 @@
 
     td a:hover {
         color: #155f85;
+    }
+
+    tr:nth-child(even) {
+        background-color: #fff;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #EAEAEA;
     }
 
     .separator {
