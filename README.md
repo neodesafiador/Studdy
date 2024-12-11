@@ -8,6 +8,7 @@ Group members: **Ethan Christmas, Katsuki Oike, Cody Painter, Dale Marquez**
   - [Overview](#overview)
   - [Roles](#roles)
   - [How to Play](#how-to-play)
+  - [Homepage](#homepage)
   - [Demo Video](#demo-video)
     - [Multiple Choice Questions](#multiple-choice-questions)
     - [Flashcards](#flashcards)
@@ -43,6 +44,9 @@ We provide personalized questions about science.
 1. Go to https://studdy.pythonanywhere.com/
 2. Create your account
 3. Enjoy!!
+
+## Homepage
+<img src="https://media.giphy.com/media/05TUQXJcEsMglyUzU2/giphy.gif" width="480" height="278" alt="Homepage" />
 
 
 ## Demo Video
