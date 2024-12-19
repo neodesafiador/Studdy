@@ -1,0 +1,31 @@
+<header>
+    <div class="banner">
+        <p class="banner-text">Studdy<p>
+        <p class="banner-text" style="font-size: 14px; font-weight: normal; left: 40px; top: 59px;">Your Personalized Study Buddy</p>
+    </div>
+    <div class="logged-in-as">
+        Logged in as {{ request.user.username }}
+    </div>
+    <div>
+        <a href="{% url 'studdyApp:logout' %}" class="logout-button">
+        <img src="https://cdn1.iconfinder.com/data/icons/heroicons-ui/24/logout-512.png" alt="Logout" class="logout-icon">
+        <span class="popup-note">Logout</span>
+        </a>
+    </div>
+    <div class="dropdown">
+        <button>Subjects ⛛</button>
+            <div class="dropdown-content">
+            <a href="{% url 'studdyApp:select_subject_grade' subject_name='anatomy' %}">Anatomy</a>
+            <a href="{% url 'studdyApp:select_subject_grade' subject_name='biology' %}">Biology</a>
+            <a href="{% url 'studdyApp:select_subject_grade' subject_name='earth_science' %}">Earth Science</a>
+            <a href="{% url 'studdyApp:select_subject_grade' subject_name='physical_science' %}">Physical Science</a>
+            <a href="{% url 'studdyApp:select_subject_grade' subject_name='astronomy' %}">Astronomy</a>
+            <a href="{% url 'studdyApp:select_subject_grade' subject_name='chemistry' %}">Chemistry</a>
+            <a href="{% url 'studdyApp:select_subject_grade' subject_name='environmental_science' %}">Environmental Science</a>
+            <a href="{% url 'studdyApp:select_subject_grade' subject_name='physics' %}">Physics</a>
+            </div>
+      </div>
+</header>
+<div>
+    <a href="https://studdy.pythonanywhere.com/" class="home-button">⇦ Back to Home</a>
+</div>
